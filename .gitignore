@@ -1,0 +1,38 @@
+# === Gradle build output ===
+/build/
+/.gradle/
+
+# === Kotlin compiler outputs ===
+*.class
+*.jar
+*.kotlin_module
+
+# === IntelliJ IDEA / VS Code ===
+.idea/
+.vscode/
+*.iml
+out/
+
+# === Local configuration ===
+local.properties
+
+# === Logs and reports ===
+*.log
+/test-results/
+/reports/
+/coverage/
+/jacoco.exec
+
+# === OS-specific files ===
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.bak
+
+# === Backup and temp files ===
+*.~*
+*.orig
+
+# === Bin directory (if used for compiled output) ===
+/bin/
