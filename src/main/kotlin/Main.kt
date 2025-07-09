@@ -19,6 +19,7 @@ class ChessApp : Application() {
     private lateinit var primaryStageRef: Stage
     private lateinit var statusLabel: Label
 
+    // creates the overall layout of the GUI
    override fun start(primaryStage: Stage) {
         primaryStageRef = primaryStage
 
@@ -42,6 +43,7 @@ class ChessApp : Application() {
         primaryStage.show()
     }
 
+    // puts piece icons in position on GUI according to board
     private fun refreshBoard(grid: GridPane) {
         grid.children.clear()
 
@@ -86,6 +88,7 @@ class ChessApp : Application() {
         primaryStageRef.title = getTurnTitle()
     }
 
+    // handles what happens when a player clicks on a square
     private fun handleClick(pos: Position, grid: GridPane) {
         val board = game.getBoard()
         val selected = selectedPosition
@@ -114,6 +117,7 @@ class ChessApp : Application() {
         updateStatusMessage()
     }
 
+    //updates the message letting players know when it's their turn, check, and checkmate
     private fun updateStatusMessage() {
         val kingInCheck = game.isInCheck(currentTurn)
         val isCheckmate = game.isCheckmate(currentTurn)
@@ -125,6 +129,7 @@ class ChessApp : Application() {
         }
     }
 
+    //Unicode used for pieces
     private fun getUnicodeSymbol(piece: Piece): String {
         return when (piece) {
             is King   -> "♚"
@@ -137,12 +142,14 @@ class ChessApp : Application() {
         }
     }
 
+    //changes the title based on the player's turn
     private fun getTurnTitle(): String {
         val name = currentTurn.name.lowercase().replaceFirstChar { it.uppercase() }
         return "Kotlin Chess — $name's Turn"
     }
 }
 
+// launches the app
 fun main() {
     Application.launch(ChessApp::class.java)
 }

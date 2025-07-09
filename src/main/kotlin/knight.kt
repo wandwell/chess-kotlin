@@ -1,4 +1,6 @@
 class Knight(color: PieceColor, position: Position) : Piece(color, position) {
+    
+    // gets possilbe moves based on L movement of knight
     override fun getLegalMoves(from: Position, board: Board): List<Position> {
         val deltas = listOf(
             1 to 2, 2 to 1, -1 to 2, -2 to 1,

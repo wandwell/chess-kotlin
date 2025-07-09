@@ -7,6 +7,7 @@ enum class PieceColor {
 
 data class Position(val file: Char, val rank: Int) {
     companion object {
+        //turns a string from board map into Position class
         fun from(notation: String): Position {
             require(notation.length == 2) { "Invalid notation: $notation" }
             val file = notation[0]
@@ -15,6 +16,7 @@ data class Position(val file: Char, val rank: Int) {
         }
     }
 
+    //allows position to change based on integer input
     fun offset(dx: Int, dy: Int): Position? {
         val newFile = file + dx
         val newRank = rank + dy
@@ -29,9 +31,11 @@ abstract class Piece(
     var position: Position,
     var hasMoved: Boolean = false
 ) {
+    // to be overridden by non-abstract classes
     abstract fun getLegalMoves(from: Position, board: Board): List<Position>
 }
 
+// basic movement for Queen, Bishop, and Rook
 fun slideMoves(
         from: Position,
         board: Board,

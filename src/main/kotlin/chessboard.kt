@@ -6,6 +6,7 @@ class Board {
         setupPieces()
     }
 
+    // fills in the map collection for the board
     private fun initializeBoard() {
         for (file in 'a'..'h') {
             for (rank in 1..8) {
@@ -15,6 +16,7 @@ class Board {
         }
     }
 
+    // fills in board collection with pieces in original positions
     private fun setupPieces() {
         board["a1"] = Rook(PieceColor.WHITE, Position('a', 1))
         board["h1"] = Rook(PieceColor.WHITE, Position('h', 1))
@@ -43,10 +45,12 @@ class Board {
         }
     }
 
+    //fetches the piece from specific position on board
     fun getPiece(position: Position): Piece? {
         return board[position.toString()]
     }
 
+    // checks if King is in Check
     fun isInCheck(color: PieceColor): Boolean {
         val kingPos = getBoard().values.find { it is King && it.color == color }?.position
             ?: return false
@@ -54,16 +58,19 @@ class Board {
         return isSquareAttacked(kingPos, color.opposite())
     }
 
+    // checks if specific square is under attack
     fun isSquareAttacked(pos: Position, byColor: PieceColor): Boolean {
     return getBoard().values
         .filter { it != null && it.color == byColor && it !is King } //  skip kings
         .any { it!!.getLegalMoves(it.position, this).contains(pos) }
-}
+    }
 
+    // fetches complete board collection
     fun getBoard(): MutableMap<String, Piece?> {
         return board
     }
 
+    // allows piece to move
     fun movePiece(start: Position, end: Position) {
         val piece = board[start.toString()] ?: return
         val legalMoves = piece.getLegalMoves(start, this)

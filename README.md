@@ -1,32 +1,24 @@
 # Overview
 
-{This project creates a simple chess game using Kotlin with gable for the GUI.}
+This project creates a simple chess game using Kotlin with gable for the GUI.
 
-{This project was created to learn the basics of Kotlin in a fun and engaging way}
+This project was created to learn the basics of Kotlin in a fun and engaging way.
 
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Development Environment
 
-{
-
 - Kotlin version 2.2.0-release-294 (JRE 24.0.1+9-30)
 - Launcher JVM: 24.0.1 (Oracle Corporation 24.0.1+9-30)
 - Gradle version 8.8
-  }
 
 {Describe the programming language that you used and any libraries.}
 
 # Useful Websites
-
-{Make a list of websites that you found helpful in this project}
 
 - [Kotlin](https://kotlinlang.org/)
 - [Gradle user manual](https://docs.gradle.org/current/userguide/userguide.html)
 
 # Future Work
 
-{
-
 - Add a replay/reset button
-  }

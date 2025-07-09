@@ -2,6 +2,7 @@ class Game {
     private val board = Board()
     var whiteTurn: Boolean = true
 
+    //game logic that allows movement
     fun makeMove(start: Position, end: Position): Boolean {
         val movingPiece = board.getPiece(start)
 
@@ -21,6 +22,7 @@ class Game {
         return true
     }
 
+    //checks if King is in check
     fun isInCheck(kingColor: PieceColor): Boolean {
         val kingPosition = findKingPosition(kingColor)
         val opponentPieces = board.getBoard().filter { (_, piece) ->
@@ -32,6 +34,7 @@ class Game {
         }
     }
 
+    //returns the position of King
     private fun findKingPosition(color: PieceColor): Position {
         for ((_, piece) in board.getBoard()) {
             if (piece is King && piece.color == color) {
@@ -41,6 +44,7 @@ class Game {
         throw IllegalStateException("King of color $color not found on the board.")
     }
 
+    // checks if King is able to move out of check
     fun isCheckmate(color: PieceColor): Boolean {
         if (!isInCheck(color)) return false
 
@@ -60,6 +64,7 @@ class Game {
         return true
     }
 
+    // checks if a move would put King into check (an illegal move)
     fun wouldBeInCheckAfterMove(
         piece: Piece,
         target: Position,
