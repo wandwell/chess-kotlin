@@ -4,7 +4,7 @@ This project creates a simple chess game using Kotlin with gable for the GUI.
 
 This project was created to learn the basics of Kotlin in a fun and engaging way.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/Ax_bMNjCYMU)
 
 # Development Environment
 
@@ -22,3 +22,5 @@ This project was created to learn the basics of Kotlin in a fun and engaging way
 # Future Work
 
 - Add a replay/reset button
+- Clean up redundant code
+- Improve GUI design/messaging
